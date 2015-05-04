@@ -1,0 +1,44 @@
+﻿@model System.Collections.Generic.IEnumerable<ADO.Data.Access.Domain.Product>
+
+@{
+    ViewBag.Title = "ProductAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    table{ width:100%}
+    table td#prodDes{width: 50%;}
+    table td#prodId { width: 3%;}
+    table td#prodName{width:25%;}
+    td#prodPrice,td.button { width: 5%;}
+    table, td{border: solid thin gray;}
+</style>
+<h2>Product Admin</h2>
+
+<table>
+    <thead>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Description</th>
+        <th>Product Price</th>
+        <th>Insert</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                @using (Html.BeginForm("ProductAdmin","Home",FormMethod.Post))
+                {
+                    <td id="prodId">@product.ProductId: @Html.Hidden("ProductId", product.ProductId)</td>
+                    <td id="prodName">@Html.TextBox("ProductName", product.ProductName,new { @style = "width:100%;" })</td>
+                    <td id="prodDes">@Html.TextArea("ProductDescription", product.ProductDescription, new { @rows=8, @cols=120, @style = "width:100%;" })</td>
+                    <td id="prodPrice">@Html.TextBox("ProductPrice", product.ProductPrice, new { @style = "width:100%;" })</td>
+                    <td class="button"><input type="submit" name="insert" value="Insert" style="width: 100%;" /></td>
+                    <td class="button"><input type="submit" name="update" value="Update" style="width: 100%;" /></td>
+                    <td class="button"><input type="submit" name="delete" value="Delete" style="width: 100%;" /></td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
