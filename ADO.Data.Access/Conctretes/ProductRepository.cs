@@ -15,7 +15,7 @@ namespace ADO.Data.Access.Conctretes
     {
         private const string _getAllProducts = @"select * from Product";
         private const string _getProductById = @"select * from Product where ProductId=@ProductId";
-        private const string _addProduct = @"insert into Products (ProductName,ProductDescription,ProductPrice) values (@ProductName,@ProductDescription,@ProductPrice)";
+        private const string _addProduct = @"insert into Product (ProductName,ProductDescription,ProductPrice) values (@ProductName,@ProductDescription,@ProductPrice)";
         private const string _deleteProduct = @"delete from Product where ProductId=@ProductId";
         private const string _updateProduct = @"update Product set 
                                                 ProductName=@ProductName, 

@@ -24,7 +24,7 @@ namespace ADO.Data.Access.Conctretes
 
         public void SetParameters(T transferObject)
         {
-            var propertyInfos = typeof(T).GetType().GetProperties(BindingFlags.Public);
+            var propertyInfos = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
 
             foreach (var propInfo in propertyInfos)
             {

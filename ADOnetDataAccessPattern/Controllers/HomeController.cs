@@ -63,7 +63,7 @@ namespace ADOnetDataAccessPattern.Controllers
                 }
 
             }
-            return View(productRepository.GetAll());
+            return RedirectToAction("ProductAdmin");
         }
     }
 }
